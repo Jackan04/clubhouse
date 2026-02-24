@@ -1,0 +1,17 @@
+<header>
+  <h2 class="logo">Clubhouse</h2>
+  <nav role="tablist">
+    <a role="tab" href="/">Messages</a>
+    <% if (isAuthenticated && currentUser.admin) { %>
+    <a role="tab" href="/users">Users</a>
+  <% } %>
+    <% if (isAuthenticated) { %>
+      <a role="tab" href="/messages/new">New Message</a>
+  
+      <a role="tab" href="/auth/sign-out">Sign Out</a>
+    <% } else { %>
+      <a role="tab" href="/auth/sign-in">Sign In</a>
+    <% } %>
+  </nav>
+</header>
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/page-title.ejs") %>
+
+    <form action="/users/edit/<%= user.id %>" method="post">
+      <label for="firstname" data-field>
+        Firstname
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Enter your firstname"
+          value="<%= user.firstname %>"
+          required
+        />
+      </label>
+
+      <label for="lastname" data-field>
+        Lastname
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Enter your lastname"
+          value="<%= user.lastname %>"
+          required
+        />
+      </label>
+
+      <label for="username" data-field>
+        Username
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="user123"
+          value="<%= user.username %>"
+          required
+        />
+      </label>
+
+      <label for="password" data-field>
+        Password
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          aria-describedby="password-hint"
+          value=""
+          required
+        />
+        <small id="password-hint" data-hint>Choose a strong password</small>
+      </label>
+
+      <label for="repeat-password" data-field>
+        Repeat Password
+        <input
+          type="password"
+          id="repeat-password"
+          name="repeat-password"
+          placeholder="Repeat password"
+          value=""
+        />
+      </label>
+        <fieldset class="hstack">
+    <legend>Admin</legend>
+    <label><input type="radio" name="admin" value="false" <%= !user.admin ? "checked" : "" %>>No</label>
+    <label><input type="radio" name="admin" value="true" <%= user.admin ? "checked" : "" %>>Yes</label>
+     </fieldset>
+
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>

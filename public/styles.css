@@ -1,0 +1,44 @@
+.container {
+  padding: 1rem;
+  max-width: 800px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--primary);
+  margin: 0;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.caption {
+  color: #595c60;
+}
+
+textarea {
+  min-height: 128px;
+}
+
+.message-meta-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .actions {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/page-title.ejs") %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Username</th>
+          <th>Admin</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach((user) => { %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.username %></td>
+            <td><%= user.admin ? "Yes" : "No" %></td>
+            <td class="actions">
+              <form action="/users/edit/<%= user.id %>" method="get">
+                <button class="small" type="submit">Edit</button>
+              </form>
+              <form action="/users/delete/<%= user.id %>" method="post">
+                <button data-variant="danger" class="small" type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

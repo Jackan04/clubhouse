@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %> <%-
+    include("./partials/page-title.ejs") %>
+
+       <% if (errors) { %>
+         <ul>
+        <% errors.forEach(error => { %>
+            <li class="danger"><%= error.msg %></li>
+          <% }) %>
+          </ul>
+        <% } %> 
+
+    <form action="/auth/sign-in" method="post">
+      <label for="username" data-field>
+        Username
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="user123"
+          required
+        />
+      </label>
+
+      <label for="password" data-field>
+        Password
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          aria-describedby="password-hint"
+          required
+        />
+      </label>
+      <button type="submit">Sign In</button>
+      <br />
+      <br />
+      <p>Don't have an account? <a href="/auth/sign-up">Create one</a></p>
+    </form>
+  </body>
+</html>

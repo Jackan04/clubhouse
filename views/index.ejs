@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/page-title.ejs") %>
+  <% if (messages.length === 0) { %>
+   <div role="alert">
+  <strong>No messages yet</strong> When you create messages, they'll show up here.
+</div>
+<% } %>
+  
+    <% messages.forEach(message => { %>
+   
+      <details>
+      <summary><%= message.title %></summary>
+      <p><%= message.content %></p>
+      <div class="message-meta-container">
+        <div>
+   <% if (isAuthenticated) { %>
+        <p class="caption">Posted by: <%= message.user.username %></p>
+      
+        <p class="caption">Posted: <%= message.timestamp %></p>
+        </div>
+        <% if (currentUser.admin) { %>
+          <div class="actions">
+            <form action="/messages/edit/<%= message.id %>" method="get">
+             <button type="submit" class="small">Edit</button>
+           </form>
+            <form action="/messages/delete/<%= message.id %>" method="post">
+              <button type="submit" data-variant="danger" class="small">Delete</button>
+            </form>
+
+          </div>
+        <% } %>
+    <% } %>
+      </div>
+    
+
+    </details>
+    <% }) %>
+  </body>
+</html>

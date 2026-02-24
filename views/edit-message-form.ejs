@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %> <%-
+    include("./partials/page-title.ejs") %>
+    <form action="/messages/edit/<%= message.id %>" method="post">
+      <label for="title" data-field>
+        Title
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Title"
+          value="<%= message.title %>"
+          required
+        />
+      </label>
+
+      <label for="content" data-field>
+        Content
+
+        <textarea type="content" id="content" name="content" required>
+<%= message.content %></textarea
+        >
+      </label>
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>

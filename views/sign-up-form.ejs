@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body class="container">
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/page-title.ejs") %>
+    
+    <% if (errors) { %>
+         <ul>
+  <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+    </ul>
+    <% } %>
+
+  
+
+    <form action="/auth/sign-up" method="post">
+      <label for="firstname" data-field>
+        Firstname
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Enter your firstname"
+          required
+        />
+      </label>
+
+      <label for="lastname" data-field>
+        Lastname
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Enter your lastname"
+          required
+        />
+      </label>
+
+      <label for="username" data-field>
+        Username
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="user123"
+          required
+        />
+      </label>
+
+      <label for="password" data-field>
+        Password
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          aria-describedby="password-hint"
+          required
+        />
+        <small id="password-hint" data-hint>Choose a strong password</small>
+      </label>
+
+      <label for="repeat-password" data-field>
+        Repeat Password
+        <input
+          type="password"
+          id="repeat-password"
+          name="repeat-password"
+          placeholder="Repeat password"
+        />
+      </label>
+        <fieldset class="hstack">
+    <legend>Admin</legend>
+    <label><input type="radio" name="admin" checked value="false">No</label>
+    <label><input type="radio" name="admin" value="true">Yes</label>
+     </fieldset>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>
