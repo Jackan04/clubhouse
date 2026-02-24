@@ -129,4 +129,3 @@ Open `http://localhost:3000`.
 ![Screenshot 4](public/screenshots/screenshot-4.png)
 ![Screenshot 5](public/screenshots/screenshot-5.png)
 ![Screenshot 6](public/screenshots/screenshot-6.png)
-![Screenshot 7](public/screenshots/screenshot-7.png)
