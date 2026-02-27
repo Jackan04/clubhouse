@@ -11,7 +11,7 @@ const signUpValidation = [
     .custom(async (username) => {
       const existingUser = await db.getUserByUsername(username);
       if (existingUser) {
-        return false;
+        throw new Error("Username is already taken");
       }
       return true;
     })
